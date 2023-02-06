@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>EasySend</title>
+    <link href="files/style.css" rel="stylesheet">
+    <meta content="width=device-width,  initial-scale=1" name="viewport">
+</head>
+<body>
+<div id="appContainer">
+    <img id="logo" alt="EasySend Logo" src="files/logo.png" width="300px"/>
+    <form id="formId" >
+        <div class="row">
+            <input id="formFirstName" name="formFirstName" placeholder="First Name" type="text" required/>
+            <div class="separator"></div>
+            <input id="formLastName" name="formLastName" placeholder="Last Name" type="text" required/>
+        </div>
+        <input id="formFullName" name="formFullName" placeholder="Full Name" type="text" required/>
+        <p id="formFullNameError" class="errorMessages hide">Name is Invalid!</p>
+        <input id="formSSN" name="formSSN"  pattern="\d{3}-\d{2}-\d{4}"  placeholder="Social Security Number" type="text"/>
+        <p id="formSSNError" class="errorMessages hide">Social Security is Invalid! format: DDD-DD-DDDD</p>
+        <input id="formPhone" name="formPhone" placeholder="Mobile Phone Number" type="text" required/>
+        <input id="formEmail" name="formEmail" placeholder="Email" type="text" required/>
+        <p id="formEmailError" class="errorMessages hide">Email is Invalid!</p>
+        <h4>Type of form to send:</h4>
+        <div class="radio">
+            <p><input id="formType1" name="formType" type="radio" value="formType1" class="inputRadio" required/>
+            <label for="formType1">Fund withdrawal request</label></p>
+            <p><input id="formType2" name="formType" type="radio" value="formType2" class="inputRadio" required/>
+            <label for="formType2">Fund transfer cancel request</label></p>
+            <p><input id="formType3" name="formType" type="radio" value="formType3" class="inputRadio" required/>
+            <label for="formType3">Life insurance onboarding form</label></p>
+            <p id="formTypeError" class="errorMessages hide">Please select option</p>
+        </div>
+        <div id="nextFormContent" class="hide">
+             <input type="text" id="fundName" name="formFundName" placeholder="Fund Name"/>
+            <p id="fundNameError" class="errorMessages hide">Fund name is Invalid! english letters, numbers and whitespaces only.</p>
+            <input type="text" id="accountNumber" name="formAccountNumber" pattern="\d*" placeholder="Account Number"/>
+            <p id="accountNumberError" class="errorMessages hide">Account number is Invalid!</p>
+            <input type="text" id="fundNumber" name="formFundNumber" pattern="\d*" placeholder="Fund Number"/>
+            <p id="fundNumberError" class="errorMessages hide">Found number is Invalid!</p>
+            <h4>Employment Type:</h4>
+        <div class="radio">
+            <p><input id="employmentType1" name="employmentType" type="radio" value="employmentType1" class="inputRadio" required/>
+                <label for="employmentType1">Employee</label></p>
+            <p><input id="employmentType2" name="employmentType" type="radio" value="employmentType2" class="inputRadio" required/>
+                <label for="employmentType2">Independent</label></p>
+
+        </div>
+        <h4>Withdrawal Type:</h4>
+        <div class="radio">
+            <p><input id="withdrawalType1" name="withdrawalType" type="radio" value="withdrawalType1" class="inputRadio" required/>
+                <label for="withdrawalType1">Full withdrawal</label></p>
+            <p><input id="withdrawalType2" name="withdrawalType" type="radio" value="withdrawalType2" class="inputRadio" required/>
+                <label for="withdrawalType2">Partial withdrawal</label></p>
+            <input type="number" name="withdrwalAmount" id="withdrwalAmount" min="0" max="99000" placeholder="Withdrwal Amount" class="hide"/>
+
+            <p><input id="withdrawalType3" name="withdrawalType" type="radio" value="withdrawalType3" class="inputRadio"/>
+            <label for="withdrawalType3">Automated monthly withdrawal</label></p>
+            <div class="labelInside hide" id="automatedMonthlyContent">
+                <p><input type="checkbox" name="paymentWithdrawal" id="paymentWithdrawal">
+                    <label for="paymentWithdrawal">Payment withdrawal</label></p>
+                <div class="labelInside hide" id="paymentWithdrawalContent">
+                    <p><input type="checkbox" name="EligibleForTaxRefund" id="EligibleForTaxRefund">
+                        <label for="EligibleForTaxRefund">Eligible for Tax Refund</label></p>
+                    <p><input type="checkbox" name="NotEligibleForTaxRefound" id="NotEligibleForTaxRefound">
+                        <label for="NotEligibleForTaxRefound">Not Eligible for Tax Refound</label></p>
+                </div>
+                <p><input type="checkbox" name="CorrespondingToLoan" id="CorrespondingToLoan">
+                    <label for="CorrespondingToLoan">Corresponding to a loan</label></p>
+            </div>
+        </div>
+        </div>
+        <br/>
+        <button type="reset" id="clearButton" onclick="onClear()">Clear Form</button><br>
+        <button type="submit" id="sendButton">Send Form</button>
+    </form>
+
+        <h1 id="message" class="hide">Success!</h1>
+</div>
+<script src="files/main.js"></script>
+</body>
+</html>
